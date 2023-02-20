@@ -1,84 +1,12 @@
-const macbookPage=(req,res)=>{
-    res.send([
-    {
-        id:1,
-        title:"macbook",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"5050$",
-        image:"https://tse1.mm.bing.net/th?id=OIP.rMgGd0dnZXVUr-LW0Aaw2QHaHa&pid=Api&P=0" 
-    },
-    {
-        id:2,
-        title:"macbook",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"5050$",
-        image:"https://tse1.mm.bing.net/th?id=OIP.rMgGd0dnZXVUr-LW0Aaw2QHaHa&pid=Api&P=0" 
-    },
-    {
-        id:3,
-        title:"macbook",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"5050$",
-        image:"https://tse1.mm.bing.net/th?id=OIP.rMgGd0dnZXVUr-LW0Aaw2QHaHa&pid=Api&P=0" 
-    },{
-        id:4,
-        title:"macbook",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"5050$",
-        image:"https://tse1.mm.bing.net/th?id=OIP.rMgGd0dnZXVUr-LW0Aaw2QHaHa&pid=Api&P=0" 
-    },{
-        id:5,
-        title:"macbook",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"5050$",
-        image:"https://tse1.mm.bing.net/th?id=OIP.rMgGd0dnZXVUr-LW0Aaw2QHaHa&pid=Api&P=0" 
-    },{
-        id:6,
-        title:"macbook",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"5050$",
-        image:"https://tse1.mm.bing.net/th?id=OIP.rMgGd0dnZXVUr-LW0Aaw2QHaHa&pid=Api&P=0" 
-    },
-    {
-        id:7,
-        title:"macbook",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"5050$",
-        image:"https://tse1.mm.bing.net/th?id=OIP.rMgGd0dnZXVUr-LW0Aaw2QHaHa&pid=Api&P=0" 
-    },{
-        id:8,
-        title:"macbook",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"5050$",
-        image:"https://tse1.mm.bing.net/th?id=OIP.rMgGd0dnZXVUr-LW0Aaw2QHaHa&pid=Api&P=0" 
-    },
-    {
-        id:9,
-        title:"macbook",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"5050$",
-        image:"https://tse1.mm.bing.net/th?id=OIP.rMgGd0dnZXVUr-LW0Aaw2QHaHa&pid=Api&P=0" 
-    },
-    {
-        id:10,
-        title:"macbook",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"5050$",
-        image:"https://tse1.mm.bing.net/th?id=OIP.rMgGd0dnZXVUr-LW0Aaw2QHaHa&pid=Api&P=0" 
-    },
-    {
-        id:11,
-        title:"macbook",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"5050$",
-        image:"https://tse1.mm.bing.net/th?id=OIP.rMgGd0dnZXVUr-LW0Aaw2QHaHa&pid=Api&P=0" 
-    },{
-        id:12,
-        title:"macbook",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"5050$",
-        image:"https://tse1.mm.bing.net/th?id=OIP.rMgGd0dnZXVUr-LW0Aaw2QHaHa&pid=Api&P=0" 
-    }
-])
+const { findAllFromDb } = require("../database/connection")
+
+const macbookPage=async(req,res)=>{
+    try {
+        const macbookPage =await findAllFromDb({},"macbookPage")
+        return res.status(200).send({macbookPage:macbookPage})
+      } catch (error) {
+        console.log("Error occur in  fetching data",error)
+       return res.status(500).send({message:"something went wrong"})
+      }
 }
 module.exports.macbookPageData=macbookPage

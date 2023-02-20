@@ -1,84 +1,12 @@
-const ipadPage=(req,res)=>{
-    res.send([
-    {
-        id:1,
-        title:"ipad",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"4000$",
-        image:"https://tse2.mm.bing.net/th?id=OIP.RVQ8R6c_SpS3vViOf_Ds6wHaHa&pid=Api&P=0" 
-    },
-    {
-        id:2,
-        title:"ipad",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"4000$",
-        image:"https://tse2.mm.bing.net/th?id=OIP.RVQ8R6c_SpS3vViOf_Ds6wHaHa&pid=Api&P=0" 
-    },
-    {
-        id:3,
-        title:"ipad",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"4000$",
-        image:"https://tse2.mm.bing.net/th?id=OIP.RVQ8R6c_SpS3vViOf_Ds6wHaHa&pid=Api&P=0" 
-    },{
-        id:4,
-        title:"ipad",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"4000$",
-        image:"https://tse2.mm.bing.net/th?id=OIP.RVQ8R6c_SpS3vViOf_Ds6wHaHa&pid=Api&P=0" 
-    },{
-        id:5,
-        title:"ipad",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"4000$",
-        image:"https://tse2.mm.bing.net/th?id=OIP.RVQ8R6c_SpS3vViOf_Ds6wHaHa&pid=Api&P=0" 
-    },{
-        id:6,
-        title:"ipad",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"4000$",
-        image:"https://tse2.mm.bing.net/th?id=OIP.RVQ8R6c_SpS3vViOf_Ds6wHaHa&pid=Api&P=0" 
-    },
-    {
-        id:7,
-        title:"ipad",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"4000$",
-        image:"https://tse2.mm.bing.net/th?id=OIP.RVQ8R6c_SpS3vViOf_Ds6wHaHa&pid=Api&P=0" 
-    },{
-        id:8,
-        title:"ipad",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"4000$",
-        image:"https://tse2.mm.bing.net/th?id=OIP.RVQ8R6c_SpS3vViOf_Ds6wHaHa&pid=Api&P=0" 
-    },
-    {
-        id:9,
-        title:"ipad",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"4000$",
-        image:"https://tse2.mm.bing.net/th?id=OIP.RVQ8R6c_SpS3vViOf_Ds6wHaHa&pid=Api&P=0" 
-    },
-    {
-        id:10,
-        title:"ipad",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"4000$",
-        image:"https://tse2.mm.bing.net/th?id=OIP.RVQ8R6c_SpS3vViOf_Ds6wHaHa&pid=Api&P=0" 
-    },
-    {
-        id:11,
-        title:"ipad",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"4000$",
-        image:"https://tse2.mm.bing.net/th?id=OIP.RVQ8R6c_SpS3vViOf_Ds6wHaHa&pid=Api&P=0" 
-    },{
-        id:12,
-        title:"ipad",
-        star:"⭐⭐⭐⭐⭐",
-        cost:"4000$",
-        image:"https://tse2.mm.bing.net/th?id=OIP.RVQ8R6c_SpS3vViOf_Ds6wHaHa&pid=Api&P=0" 
-    }
-])
+const { findAllFromDb } = require("../database/connection")
+
+const ipadPage=async(req,res)=>{
+    try {
+        const ipadPage =await findAllFromDb({},"ipadPage")
+        return res.status(200).send({ipadPage:ipadPage})
+      } catch (error) {
+        console.log("Error occur in  fetching data",error)
+       return res.status(500).send({message:"something went wrong"})
+      }
 }
 module.exports.ipadPageData=ipadPage
